@@ -1,1 +1,7 @@
 .vscode
+
+# total Excel file (can be downloaded from seoul-datacenter)
+raw_data/*/total/
+
+# excel temp file
+~$*.xlsx

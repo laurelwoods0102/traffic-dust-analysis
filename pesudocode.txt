@@ -1,0 +1,17 @@
+# preprocessing.py
+
+def dust_preprocessor:
+    doc = get dust as xlsx
+
+    temp = []   // containing location (first column)
+    container = []   // temporary storage for data
+    for row in rows:    // iterate rows in doc
+        
+        if row[first column] == temp:   // if row has same location as latest data
+            data = row[datetime, dust]  // extract data : datetime, dust (SO2	CO	O3	NO2	PM10	PM25)
+            container.append(data)    
+        else :
+            doc_name = temp.pop()   // to clear temp
+            export container as doc_name.xlsx    
+            container = []   // clear data list
+            temp.append(row[first column])  // temp with new location
