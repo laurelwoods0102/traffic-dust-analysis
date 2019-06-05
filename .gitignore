@@ -1,7 +1,16 @@
 .vscode
+data/
+raw_data/
+wrong_data/
 
 # total Excel file (can be downloaded from seoul-datacenter)
 raw_data/*/total/
 
 # excel temp file
 ~$*.xlsx
+
+# outdated project files
+(outdated)*.*
+
+# files for example
+example*.*
