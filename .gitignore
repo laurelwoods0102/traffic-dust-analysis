@@ -1,5 +1,6 @@
 .vscode
-data/
+data/dust
+data/traffic
 raw_data/
 wrong_data/
 
