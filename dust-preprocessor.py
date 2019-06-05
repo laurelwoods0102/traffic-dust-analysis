@@ -22,11 +22,17 @@ for rdl in raw_date_list:
 column_index = ['SO2', 'CO', 'O3', 'NO2', 'PM10', 'PM25']
 
 dataset = list()
-for id_dt in index_datetime:
-    df = pandas.read_csv('./data/dust/{}.csv'.format(id_dt), names=column_index)
-    df_mean = df.mean(axis=0, skipna=True)
-    dataset.append(df_mean)
+for rdl in raw_date_list:
+    temp = list()
+    for hl in hours_list:
+        df = pandas.read_csv('./data/dust/{0}{1}.csv'.format(rdl, hl), names=column_index)
+        df_mean = df.mean(axis=0, skipna=True)
+        temp.append(df_mean)
+    temp_data = pandas.concat(temp, axis=1)
+    temp_mean = temp_data.mean(axis=1)
+    dataset.append(temp_mean)
+
 
 processed_data = pandas.concat(dataset, axis=1)
-processed_data = processed_data.rename(index=str, columns={index_datetime.index(x): x for x in index_datetime})
+processed_data = processed_data.rename(index=str, columns={raw_date_list.index(x): x for x in raw_date_list})
 processed_data.to_csv('./data/dust.csv', mode='w')
